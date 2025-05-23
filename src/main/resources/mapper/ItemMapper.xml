@@ -6,4 +6,8 @@
         INSERT INTO items (name) VALUES (#{item});
     </insert>
 
+    <select id="selectById" resultMap="com.fruitshop.fruitshop_backend.dto.ItemDto">
+        SELECT id, name FROM items WHERE id = #{id};
+    </select>
+
 </mapper>
