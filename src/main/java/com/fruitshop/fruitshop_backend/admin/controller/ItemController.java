@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/items")
@@ -15,6 +17,14 @@ public class ItemController {
 
     private final ItemMapper itemMapper;
     private final ItemService itemService;
+
+    @GetMapping
+    public String getItems(Model model){
+        List<ItemDto> items = itemService.getItems();
+        model.addAttribute("items", items);
+
+        return "item/list";
+    }
 
     @GetMapping("/create")
     public String create(){
@@ -39,5 +49,6 @@ public class ItemController {
         }
         return "item/detail";
     }
+
 
 }

@@ -5,11 +5,17 @@ import com.fruitshop.fruitshop_backend.admin.mapper.ItemMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ItemService {
 
     private final ItemMapper itemMapper;
+
+    public List<ItemDto> getItems(){
+        return itemMapper.selectItems();
+    }
 
     public ItemDto getItem(int id){
 //       nullException 처리

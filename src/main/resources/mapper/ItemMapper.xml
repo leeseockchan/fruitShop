@@ -11,7 +11,7 @@
     </select>
 
     <select id="selectItems" resultType="AdminItem">
-        SELECT id, name AS item FROM items ORDER BY id DESC LIMIT 5;
+        SELECT id, name FROM items ORDER BY id DESC LIMIT 5;
     </select>
 
     <update id="updateItem" parameterType="AdminItem">
