@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fruitshop.fruitshop_backend.mapper.ItemMapper">
+<mapper namespace="com.fruitshop.fruitshop_backend.admin.mapper.ItemMapper">
 
-    <insert id="insertItem" parameterType="com.fruitshop.fruitshop_backend.dto.ItemDto">
-        INSERT INTO items (name) VALUES (#{item});
+    <insert id="insertItem" parameterType="AdminItem" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO items (name) VALUES (#{name});
     </insert>
 
-    <select id="selectById" resultMap="com.fruitshop.fruitshop_backend.dto.ItemDto">
+    <select id="selectById" resultType="AdminItem">
         SELECT id, name FROM items WHERE id = #{id};
     </select>
+
+    <select id="selectItems" resultType="AdminItem">
+        SELECT id, name AS item FROM items ORDER BY id DESC LIMIT 5;
+    </select>
+
+    <update id="updateItem" parameterType="AdminItem">
+        UPDATE items SET name = #{item} WHERE id = #{id};
+    </update>
+
+    <delete id="deleteItem">
+        DELETE FROM items WHERE id = #{id};
+    </delete>
 
 </mapper>

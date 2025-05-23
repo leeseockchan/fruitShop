@@ -1,9 +1,9 @@
-package com.fruitshop.fruitshop_backend.controller;
+package com.fruitshop.fruitshop_backend.admin.controller;
 
-import com.fruitshop.fruitshop_backend.dto.ItemDto;
-import com.fruitshop.fruitshop_backend.mapper.ItemMapper;
+import com.fruitshop.fruitshop_backend.admin.dto.ItemDto;
+import com.fruitshop.fruitshop_backend.admin.mapper.ItemMapper;
+import com.fruitshop.fruitshop_backend.admin.service.ItemService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
