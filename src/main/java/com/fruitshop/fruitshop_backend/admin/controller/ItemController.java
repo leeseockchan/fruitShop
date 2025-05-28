@@ -27,7 +27,7 @@ public class ItemController {
     }
 
     @GetMapping("/create")
-    public String create(){
+    public String createItem(){
         return "item/create";
     }
 
@@ -36,6 +36,24 @@ public class ItemController {
     public void createItem(@RequestBody ItemDto itemDto){
         System.out.println(itemDto.getName());
         itemMapper.insertItem(itemDto);
+    }
+
+    @GetMapping("/{id}/modify")
+    public String modifyItem(@PathVariable("id") int id, Model model){
+        try{
+            ItemDto itemDto = itemService.getItem(id);
+            model.addAttribute("item", itemDto);
+        }catch(IllegalStateException e){
+            model.addAttribute("message", e.getMessage());
+            return "error/404";
+        }
+        return "item/modify";
+    }
+    @PostMapping("/{id}/modify")
+    @ResponseBody
+    public void modifyItem(@RequestBody ItemDto itemDto){
+        System.out.println(itemDto.getName());
+        itemService.modifyItem(itemDto);
     }
 
     @GetMapping("/{id}")

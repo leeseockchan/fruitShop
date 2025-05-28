@@ -2,24 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/base}"><head>
+  <link rel="stylesheet" th:href="@{/css/dashboard/dashboard.css}">
   <meta charset="UTF-8">
   <title>상품 아이템 목록</title>
 </head>
 <body>
 <main layout:fragment="content">
   <h1>상품 아이템 목록</h1>
-  <table>
-    <tr>
-      <th>아이디</th>
-      <th>상품명</th>
-    </tr>
-
-    <tr th:each="item: ${items}">
-      <td th:text="${item.id}"></td>
-      <td><a th:href="@{/items/{id}(id=${item.id})}" th:text="${item.name}"></a></td>
-    </tr>
-
-  </table>
+  <div class="item-grid">
+    <div class="item-card" th:each="item : ${items}">
+      <a th:href="@{/items/{id}(id=${item.id})}">
+<!--        <div class="item-thumbnail">-->
+<!--          <img th:src="${item.imageUrl}" alt="상품 이미지">-->
+<!--        </div>-->
+        <div class="item-info">
+          <p class="item-name" th:text="${item.name}"></p>
+        </div>
+      </a>
+    </div>
+  </div>
 </main>
 </body>
 </html>

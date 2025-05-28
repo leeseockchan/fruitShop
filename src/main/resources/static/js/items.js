@@ -16,6 +16,7 @@ document.getElementById('itemForm').addEventListener('submit', function(e) {
         if (response.ok) {
             alert('아이템이 성공적으로 등록되었습니다.');
             document.getElementById('itemForm').reset();
+            window.location.href = '/items';
         } else {
             alert('아이템 등록에 실패했습니다.');
         }

@@ -6,8 +6,8 @@
         INSERT INTO items (name) VALUES (#{name});
     </insert>
 
-    <select id="selectById" resultType="AdminItem">
-        SELECT id, name FROM items WHERE id = #{id};
+    <select id="selectItemById" resultType="AdminItem">
+        SELECT * FROM items WHERE id = #{id};
     </select>
 
     <select id="selectItems" resultType="AdminItem">

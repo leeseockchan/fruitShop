@@ -1,0 +1,64 @@
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+  border-left: 4px solid #111;
+  padding-left: 12px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.item-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fafafa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.item-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.item-info {
+  padding: 12px;
+}
+
+.item-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+  margin: 0;
+  text-align: center;
+}
