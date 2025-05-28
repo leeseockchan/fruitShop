@@ -35,7 +35,19 @@ public class ItemController {
     @ResponseBody
     public void createItem(@RequestBody ItemDto itemDto){
         System.out.println(itemDto.getName());
-        itemMapper.insertItem(itemDto);
+        itemService.createItem(itemDto);
+    }
+
+    @GetMapping("/{id}")
+    public String getItem(@PathVariable("id") int id, Model model){
+        try {
+            ItemDto itemDto = itemService.getItem(id);
+            model.addAttribute("item", itemDto);
+        }catch (IllegalStateException e){
+            model.addAttribute("message", e.getMessage());
+            return "error/404";
+        }
+        return "item/detail";
     }
 
     @GetMapping("/{id}/modify")
@@ -56,17 +68,12 @@ public class ItemController {
         itemService.modifyItem(itemDto);
     }
 
-    @GetMapping("/{id}")
-    public String getItem(@PathVariable("id") int id, Model model){
-        try {
-            ItemDto itemDto = itemService.getItem(id);
-            model.addAttribute("item", itemDto);
-        }catch (IllegalStateException e){
-            model.addAttribute("message", e.getMessage());
-            return "error/404";
-        }
-        return "item/detail";
+    @GetMapping("/{id}/remove")
+    @ResponseBody
+    public void removeItem(@PathVariable("id") int id){
+        itemService.removeItem(id);
     }
+
 
 
 }

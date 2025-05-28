@@ -25,6 +25,9 @@ public class ItemService {
         return itemDto;
     }
 
+    public void createItem(ItemDto itemDto) {
+        itemMapper.insertItem(itemDto);
+    }
 
     public void modifyItem(ItemDto itemDto){
         itemMapper.updateItem(itemDto);
