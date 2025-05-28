@@ -7,7 +7,7 @@ document.getElementById('itemForm').addEventListener('submit', function(e) {
         }
 
         fetch("/items/"+item.id+"/modify", {
-            method : 'post',
+            method : 'PUT',
             headers : {'Content-Type': 'application/json'},
             body : JSON.stringify(item)
         }).then(response => {

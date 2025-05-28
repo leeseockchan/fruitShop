@@ -61,14 +61,14 @@ public class ItemController {
         }
         return "item/modify";
     }
-    @PostMapping("/{id}/modify")
+    @PutMapping("/{id}/modify")
     @ResponseBody
     public void modifyItem(@RequestBody ItemDto itemDto){
         System.out.println(itemDto.getName());
         itemService.modifyItem(itemDto);
     }
 
-    @GetMapping("/{id}/remove")
+    @DeleteMapping("/{id}/remove")
     @ResponseBody
     public void removeItem(@PathVariable("id") int id){
         itemService.removeItem(id);
