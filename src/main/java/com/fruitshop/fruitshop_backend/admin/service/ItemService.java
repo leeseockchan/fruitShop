@@ -1,6 +1,7 @@
 package com.fruitshop.fruitshop_backend.admin.service;
 
 import com.fruitshop.fruitshop_backend.admin.dto.ItemDto;
+import com.fruitshop.fruitshop_backend.admin.dto.PageDto;
 import com.fruitshop.fruitshop_backend.admin.mapper.ItemMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,13 @@ public class ItemService {
 
     private final ItemMapper itemMapper;
 
-    public List<ItemDto> getItems(){
-        return itemMapper.selectItems();
+    public PageDto getItems(int page, int size) {
+        int offset = (page - 1) * size;
+        List<ItemDto> items = itemMapper.selectItems(size, offset);
+        // 총갯수
+        int totalElements = itemMapper.countTotal();
+
+        return new PageDto(page, size, totalElements, items);
     }
 
     public ItemDto getItem(int id){

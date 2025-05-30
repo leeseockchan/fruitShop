@@ -7,11 +7,15 @@
     </insert>
 
     <select id="selectItemById" resultType="AdminItem">
-        SELECT * FROM items WHERE id = #{id};
+        SELECT id, name FROM items ORDER BY id DESC LIMIT #{size} OFFSET #{offset};
     </select>
 
     <select id="selectItems" resultType="AdminItem">
-        SELECT id, name FROM items ORDER BY id DESC LIMIT 5;
+        SELECT id, name FROM items ORDER BY id DESC LIMIT #{size} OFFSET #{offset};
+    </select>
+
+    <select id="countTotal" resultType="Integer">
+        SELECT count(*) FROM items;
     </select>
 
     <update id="updateItem" parameterType="AdminItem">

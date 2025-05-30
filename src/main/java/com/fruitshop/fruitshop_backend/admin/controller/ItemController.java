@@ -1,6 +1,7 @@
 package com.fruitshop.fruitshop_backend.admin.controller;
 
 import com.fruitshop.fruitshop_backend.admin.dto.ItemDto;
+import com.fruitshop.fruitshop_backend.admin.dto.PageDto;
 import com.fruitshop.fruitshop_backend.admin.mapper.ItemMapper;
 import com.fruitshop.fruitshop_backend.admin.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -15,14 +16,14 @@ import java.util.List;
 @RequestMapping("/items")
 public class ItemController {
 
-    private final ItemMapper itemMapper;
     private final ItemService itemService;
 
     @GetMapping
-    public String getItems(Model model){
-        List<ItemDto> items = itemService.getItems();
-        model.addAttribute("items", items);
-
+    public String getItems(@RequestParam(name = "page", defaultValue="1")int page,
+                           @RequestParam(name = "size", defaultValue="10")int size,
+                           Model model){
+        PageDto pageDto = itemService.getItems(page, size);
+        model.addAttribute("pageDto", pageDto);
         return "item/list";
     }
 
