@@ -43,9 +43,34 @@ public class SupplyController {
     public String getSupplies(@RequestParam(name = "page", defaultValue="1")int page,
                            @RequestParam(name = "size", defaultValue="10")int size,
                            Model model){
-        PageDto pageDto = supplyService.getSupplies(page, size);
+        PageDto<SupplyDto> pageDto = supplyService.getSupplies(page, size);
         model.addAttribute("pageDto", pageDto);
         return "supply/list";
+    }
+
+    @GetMapping("/{id}/modify")
+    public String modifySupply(@PathVariable("id")int id, Model model){
+        try{
+            SupplyDto supplyDto = supplyService.getSupply(id);
+            model.addAttribute("supply", supplyDto);
+        }catch(IllegalStateException e){
+            model.addAttribute("message", e.getMessage());
+            return "error/404";
+        }
+        return "supply/modify";
+    }
+
+    @PutMapping("/{id}/modify")
+    @ResponseBody
+    public void modifySupply(@RequestBody SupplyDto supplyDto) {
+        System.out.println(supplyDto.getName());
+        supplyService.modifySupply(supplyDto);
+    }
+
+    @DeleteMapping("/{id}/remove")
+    @ResponseBody
+    public void removeItem(@PathVariable("id") int id) {
+        supplyService.removeSupply(id);
     }
 
 }

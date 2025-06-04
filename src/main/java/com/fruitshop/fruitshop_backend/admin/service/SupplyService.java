@@ -24,14 +24,20 @@ public class SupplyService {
         );
     }
 
-    public PageDto getSupplies(int page, int size) {
+    public PageDto<SupplyDto> getSupplies(int page, int size) {
         int offset = (page - 1) * size;
         List<SupplyDto> supplies = supplyMapper.getSupplies(size, offset);
         int totalElements = supplyMapper.countTotal();
 
-        return new PageDto(page, size, totalElements, supplies); // 수정됨
+        return new PageDto<>(page, size, totalElements, supplies);
     }
 
+    public void modifySupply(SupplyDto  supplyDto){
+        supplyMapper.updateSupply(supplyDto);
+    }
 
+    public void removeSupply(int id){
+        supplyMapper.deleteSupply(id);
+    }
 
 }

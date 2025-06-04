@@ -32,8 +32,8 @@ public class PageDto<T> {
         this.page = page;
         this.size = size;
         this.totalElements = totalElements;
-        this.content = content;
         calculatePages();
+        this.content = content;
     }
 
 }

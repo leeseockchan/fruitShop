@@ -15,11 +15,12 @@
         <li>contact1: <span th:text="${supply.contact1}"></span></li>
         <li>contact2: <span th:text="${supply.contact2}"></span></li>
         <li>businessNumber: <span th:text="${supply.businessNumber}"></span></li>
-
+        <li><a th:href="@{/supplies/{id}/modify(id=${supply.id})}">수정하기</a></li>
+        <li><a href="#" th:data-supply-id="${supply.id}" onclick="confirmDelete(this); return false;">삭제하기</a></li>
     </ul>
 </main>
 <th:block layout:fragment="js">
-    <script th:src="@{/js/supplies_detail.js}"></script>
+    <script th:src="@{/js/supply/supplies_detail.js}"></script>
 </th:block>
 </body>
 </html>

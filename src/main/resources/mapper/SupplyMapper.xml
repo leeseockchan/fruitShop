@@ -15,5 +15,15 @@
         SELECT count(*) FROM supply;
     </select>
 
+    <update id="updateSupply" parameterType="AdminSupply">
+        UPDATE supply SET name = #{name},
+        contact1 = #{contact1},
+        contact2 = #{contact2},
+        business_number = #{businessNumber}
+        WHERE id = #{id};
+    </update>
 
+    <delete id="deleteSupply">
+        DELETE FROM supply WHERE id = #{id};
+    </delete>
 </mapper>
