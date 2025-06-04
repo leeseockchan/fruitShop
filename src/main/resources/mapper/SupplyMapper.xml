@@ -11,4 +11,9 @@
         FROM supply ORDER BY id DESC LIMIT #{size} OFFSET #{offset};
     </select>
 
+    <select id="countTotal" resultType="Integer">
+        SELECT count(*) FROM supply;
+    </select>
+
+
 </mapper>

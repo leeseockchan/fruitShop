@@ -24,4 +24,14 @@ public class SupplyService {
         );
     }
 
+    public PageDto getSupplies(int page, int size) {
+        int offset = (page - 1) * size;
+        List<SupplyDto> supplies = supplyMapper.getSupplies(size, offset);
+        int totalElements = supplyMapper.countTotal();
+
+        return new PageDto(page, size, totalElements, supplies); // 수정됨
+    }
+
+
+
 }
