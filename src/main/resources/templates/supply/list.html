@@ -22,7 +22,7 @@
             <td th:text="${supply.id}"></td>
             <td><a th:href="@{/supplies/{id}(id=${supply.id})}" th:text="${supply.name}"></a></td>
         </tr>
-         반복구간 끝
+<!--         반복구간 끝-->
     </table>
     <div>
         <a th:if="${pageDto.prev}" th:href="@{/supplies(page=${pageDto.start - 1}, size=${pageDto.size})}"

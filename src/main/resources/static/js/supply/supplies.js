@@ -100,6 +100,7 @@ document.getElementById('supplyForm').addEventListener('submit', function(e) {
         if (response.ok) {
             alert('구입처가 성공적으로 생성되었습니다.');
             document.getElementById('supplyForm').reset();
+            window.location.href = '/supplies';
         } else {
             alert('구입처 생성에 실패했습니다.');
         }
