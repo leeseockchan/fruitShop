@@ -35,9 +35,9 @@ document.getElementById('itemForm').addEventListener('submit', function(e) {
     const item = {
         name: document.getElementById('name_id').value,
     }
-    if (! hasWhiteSpace(item.item) &&
-        ! hasSpecialChar(item.item) &&
-        ! startWithNumber(item.item)) {
+    if (! hasWhiteSpace(item.name) &&
+        ! hasSpecialChar(item.name) &&
+        ! startWithNumber(item.name)) {
         alert('상품을 추가 합니다.');
     } else {
         alert('상품명을 다시 확인해주세요.');
