@@ -18,12 +18,14 @@
 <main layout:fragment="content">
     <h1>상품 아이템 등록</h1>
     <form id="itemForm" th:action="@{/items}" method="post">
+        <span>* 공백과 특수문자는 사용할 수 없습니다. 숫자로 시작할 수 없습니다.</span><br>
         <label for="name_id">아이템(과일): </label>
         <input type="text" id="name_id" name="name" required>
         <div>
             <span id="spaceError" class="error">공백은 사용할 수 없습니다.</span>
             <span id="specialCharError" class="error">특수문자는 사용할 수 없습니다.</span>
             <span id="startWithNumberError" class="error">숫자로 시작할 수 없습니다.</span>
+            <span id="nameError" class="error"></span>
         </div>
         <button type="submit">아이템 등록</button>
     </form>
