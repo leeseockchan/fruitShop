@@ -37,17 +37,18 @@ export class FormValidator {
     const formValues = {};
     let isValid = true;
 
-    for(const [k,v] of Object.entries(this.config.fields)){
-        const value = document.getElementById(v.id).value;
+    for (const [k, v] of Object.entries(this.config.fields)) {
+       const value = document.getElementById(v.id).value;
 
-        if(v.values.some(rule => rule.validate(value))){
-            isValid = false;
-            break;
-            }
-        formValues[k] = value;
-        }
+        if (v.rules.some(rule => rule.validate(value))) {
+               isValid = false;
+               break;
+           }
 
-        if(!isValid){
+           formValues[k] = value;
+       }
+
+         if (!isValid) {
             this.clearFormValues(formValues);
             return;
         }
@@ -58,7 +59,7 @@ console.log(formValues);
                this.showLoading();
 
                // 서버로 전송
-               const response = await fetch(this.config.submitUrl, {
+           const response = await fetch(this.config.submitUrl, {
                    method: 'POST',
                    headers: {
                        'Content-Type': 'application/json'
@@ -70,9 +71,6 @@ console.log(formValues);
                if (!response.ok) {
                    throw new Error(`HTTP error! status: ${response.status}`);
                }
-
-               // 응답 데이터 처리
-               // const result = await response.json();
 
                // 성공 처리
                this.handleSuccess(this.config.onSuccess.message);

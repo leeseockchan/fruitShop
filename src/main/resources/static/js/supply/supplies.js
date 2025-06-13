@@ -27,9 +27,9 @@ const config = {
             id: 'contact1_id',
             rules: [
                 {
-                    validate: inputValidator.validateLandLineNumber,
+                    validate: inputValidator.validateMobileNumber,
                     errorId: 'contact1Error',
-                    message: '일반전화번호의 입력 형식을 확인해주세요.'
+                    message: '개인 연락처의 입력 형식을 확인해주세요.'
                 }
             ]
         },
@@ -37,9 +37,9 @@ const config = {
             id: 'contact2_id',
             rules: [
                 {
-                    validate: inputValidator.validateMobileNumber,
+                    validate: inputValidator.validateLandLineNumber,
                     errorId: 'contact2Error',
-                    message: '휴대전화의 입력 형식을 확인해주세요.'
+                    message: '구입처 연락처의 입력 형식을 확인해주세요.'
                 }
             ]
         },
@@ -54,7 +54,6 @@ const config = {
             ]
         }
     },
-     },
         submitUrl: '/supplies',
         onSuccess: {
             message: '구입처가 등록되었습니다.'
