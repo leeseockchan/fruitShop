@@ -1,7 +1,7 @@
-package com.fruitshop.fruitshop_backend.user.controller;
+package com.fruitshop.fruitshop_backend.controller;
 
-import com.fruitshop.fruitshop_backend.user.dto.UserDto;
-import com.fruitshop.fruitshop_backend.user.service.UserService;
+import com.fruitshop.fruitshop_backend.dto.UserDto;
+import com.fruitshop.fruitshop_backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

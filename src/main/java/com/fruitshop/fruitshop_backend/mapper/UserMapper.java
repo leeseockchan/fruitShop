@@ -1,6 +1,6 @@
-package com.fruitshop.fruitshop_backend.user.mapper;
+package com.fruitshop.fruitshop_backend.mapper;
 
-import com.fruitshop.fruitshop_backend.user.dto.UserDto;
+import com.fruitshop.fruitshop_backend.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
