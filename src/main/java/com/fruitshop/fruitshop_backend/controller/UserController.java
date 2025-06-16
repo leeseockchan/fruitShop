@@ -12,21 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
-
-    @GetMapping("/auth/signup")
-    public String signup(){
-        return "/user/signup";
+    @GetMapping("/admin/dashboard")
+    public String home() {
+        return "/common/dashboard";
     }
 
-    @PostMapping("/auth/signup")
-    public String signup(@ModelAttribute UserDto userDto){
-        userService.signup(userDto);
-        return "/auth/login";
-    }
-
-    @GetMapping("/auth/login")
-    public String login(){
+    @GetMapping("/admin/login")
+    public String login() {
         return "/user/login";
     }
 }
