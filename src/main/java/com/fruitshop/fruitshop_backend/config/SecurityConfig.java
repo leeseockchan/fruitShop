@@ -32,8 +32,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/**").permitAll()
                         // 관리자 요청 관리
                         .requestMatchers("/admin/login").permitAll()
-                        .requestMatchers("/admin/user/{id}").hasRole("ADMIN")
+                        .requestMatchers("/error").permitAll()
+                        .requestMatchers("/admin/user/*").hasRole("ADMIN")
                         .requestMatchers("/admin/**").hasAnyRole("ADMIN", "MANAGER")
+                        .requestMatchers("/admin/dashboard").hasAnyRole("ADMIN", "MANAGER")
 
                         .anyRequest().authenticated()
                 )

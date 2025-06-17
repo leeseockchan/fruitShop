@@ -3,7 +3,7 @@
 <mapper namespace="com.fruitshop.fruitshop_backend.mapper.UserMapper">
 
     <insert id="save" parameterType="com.fruitshop.fruitshop_backend.dto.UserDto"
-    useGeneratedKeys="true" keyProperty="id">
+            useGeneratedKeys="true" keyProperty="id">
         INSERT INTO users (username, password, enabled) VALUES (#{username}, #{password}, #{enabled});
     </insert>
 </mapper>
