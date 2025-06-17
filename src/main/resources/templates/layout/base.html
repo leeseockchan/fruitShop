@@ -6,7 +6,7 @@
   <title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">과일가게</title>
 
   <!-- 공통 스타일시스 -->
-  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/dashboard/common.css}">
 
   <!-- 페이지별 추가 스타일시트 -->
   <th:block layout:fragment="css"></th:block>
@@ -32,7 +32,7 @@
 <script th:src="@{/js/common.js}"></script>
 
 <!-- 페이지별 추가 스크립트 -->
-<th:block layout:fragment="js"></th:block>
+<th:block th:type="module" layout:fragment="js"></th:block>
 
 </body>
 </html>
