@@ -1,8 +1,8 @@
-package com.fruitshop.fruitshop_backend.admin.service;
+package com.fruitshop.fruitshop_backend.service;
 
-import com.fruitshop.fruitshop_backend.admin.dto.ItemDto;
-import com.fruitshop.fruitshop_backend.admin.dto.PageDto;
-import com.fruitshop.fruitshop_backend.admin.mapper.ItemMapper;
+import com.fruitshop.fruitshop_backend.dto.ItemDto;
+import com.fruitshop.fruitshop_backend.dto.PageDto;
+import com.fruitshop.fruitshop_backend.mapper.ItemMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

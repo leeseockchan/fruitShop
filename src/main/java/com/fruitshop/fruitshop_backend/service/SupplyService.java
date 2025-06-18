@@ -1,8 +1,8 @@
-package com.fruitshop.fruitshop_backend.admin.service;
+package com.fruitshop.fruitshop_backend.service;
 
-import com.fruitshop.fruitshop_backend.admin.dto.PageDto;
-import com.fruitshop.fruitshop_backend.admin.dto.SupplyDto;
-import com.fruitshop.fruitshop_backend.admin.mapper.SupplyMapper;
+import com.fruitshop.fruitshop_backend.dto.PageDto;
+import com.fruitshop.fruitshop_backend.dto.SupplyDto;
+import com.fruitshop.fruitshop_backend.mapper.SupplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

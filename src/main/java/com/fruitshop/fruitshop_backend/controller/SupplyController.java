@@ -1,8 +1,8 @@
-package com.fruitshop.fruitshop_backend.admin.controller;
+package com.fruitshop.fruitshop_backend.controller;
 
-import com.fruitshop.fruitshop_backend.admin.dto.PageDto;
-import com.fruitshop.fruitshop_backend.admin.dto.SupplyDto;
-import com.fruitshop.fruitshop_backend.admin.service.SupplyService;
+import com.fruitshop.fruitshop_backend.dto.PageDto;
+import com.fruitshop.fruitshop_backend.dto.SupplyDto;
+import com.fruitshop.fruitshop_backend.service.SupplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

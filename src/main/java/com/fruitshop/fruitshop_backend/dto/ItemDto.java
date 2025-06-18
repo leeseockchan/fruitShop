@@ -1,4 +1,4 @@
-package com.fruitshop.fruitshop_backend.admin.dto;
+package com.fruitshop.fruitshop_backend.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

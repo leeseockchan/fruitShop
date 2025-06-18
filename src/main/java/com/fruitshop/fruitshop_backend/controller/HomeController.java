@@ -1,4 +1,4 @@
-package com.fruitshop.fruitshop_backend.admin.controller;
+package com.fruitshop.fruitshop_backend.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

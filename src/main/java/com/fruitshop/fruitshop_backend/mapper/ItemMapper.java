@@ -1,6 +1,6 @@
-package com.fruitshop.fruitshop_backend.admin.mapper;
+package com.fruitshop.fruitshop_backend.mapper;
 
-import com.fruitshop.fruitshop_backend.admin.dto.ItemDto;
+import com.fruitshop.fruitshop_backend.dto.ItemDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

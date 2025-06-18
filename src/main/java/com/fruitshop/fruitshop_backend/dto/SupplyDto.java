@@ -1,4 +1,4 @@
-package com.fruitshop.fruitshop_backend.admin.dto;
+package com.fruitshop.fruitshop_backend.dto;
 
 import lombok.Data;
 import lombok.Setter;
