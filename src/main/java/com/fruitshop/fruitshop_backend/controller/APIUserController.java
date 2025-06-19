@@ -18,6 +18,6 @@ public class APIUserController {
     @PostMapping("/api/v1/auth/signup")
     public ResponseEntity<String> signup(@RequestBody UserDto userDto){
         apiUserService.signup(userDto);
-        return ResponseEntity.ok("로그인에 성공하였습니다.");
+        return ResponseEntity.ok("회원 가입에 성공하였습니다.");
     }
 }
