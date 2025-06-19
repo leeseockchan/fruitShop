@@ -10,8 +10,8 @@ public class UserDto {
     private Integer id;
     private String username;
     private String password;
-    private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private boolean enabled;
     private List<RoleDto> roles;
 }
