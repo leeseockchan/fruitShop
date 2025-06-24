@@ -1,8 +1,7 @@
 package com.fruitshop.fruitshop_backend.config;
 
+import jakarta.servlet.http.HttpServletResponse;
 import com.fruitshop.fruitshop_backend.component.JwtAuthenticationFilter;
-import io.jsonwebtoken.Jwt;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -16,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
@@ -26,7 +27,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserDetailsService userDetailsService;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter, UserDetailsService userDetailsService){
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter, UserDetailsService userDetailsService) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
         this.userDetailsService = userDetailsService;
     }
@@ -35,10 +36,10 @@ public class SecurityConfig {
     @Bean
     @Order(1)
     public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
-        log.info("Admin security config ...");
+        log.info("Admin Security config ...");
 
         http
-                .securityMatcher("/admin/**")  // 관리 페이지에만 적용
+                .securityMatcher("/admin/**")  // 관리 페이지만 적용
                 .csrf(AbstractHttpConfigurer::disable)  // API 서버역할
                 .formLogin(formLogin-> formLogin
                         .loginPage("/admin/login")
